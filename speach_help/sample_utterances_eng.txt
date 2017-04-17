@@ -1,0 +1,13 @@
+PlayIntent Please initiate a {Rounds} round match against {Strategy}
+PlayIntent I want to play a {Rounds} round game against {Strategy}
+PlayIntent Please start a {Rounds} round match against {Strategy}
+PlayIntent Lets play a {Rounds} round game against {Strategy}
+PlayIntent Initiate a {Rounds} round match against {Strategy}
+PlayIntent Start a {Rounds} round match against {Strategy}
+PlayIntent Can I have a {Rounds} match against {Strategy}
+
+ChoiceIntent I would like to {Choice} please
+ChoiceIntent I would like to {Choice}
+ChoiceIntent I am going to {Choice}
+ChoiceIntent I will {Choice}
+ChoiceIntent {Choice}

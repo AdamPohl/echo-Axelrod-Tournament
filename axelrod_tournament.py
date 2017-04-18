@@ -441,6 +441,7 @@ def play_intent(Rounds, Strategy):
     opp = axl.strategies[[s.name for s in axl.strategies].index(strategy)]()
 
     global PLAYERS
+    PLAYERS = []
     PLAYERS.append(opp)
     PLAYERS.append(you)
 
@@ -460,7 +461,8 @@ def choice_intent(self, Choice):
         choice = C
 
     global PLAYERS
-    if len(PLAYERS[0].history) == 0:
+    global ROUNDS
+    if len(PLAYERS[0].history) == 0 or len(PLAYERS[0].history) > ROUNDS:
         for p in PLAYERS:
             p.reset()
 

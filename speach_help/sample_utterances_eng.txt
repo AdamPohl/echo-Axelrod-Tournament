@@ -8,7 +8,6 @@ PlayIntent Can I have a {Rounds} match against {Strategy}
 
 PlayIntent to please initiate a {Rounds} round match against {Strategy}
 PlayIntent to please start a {Rounds} round match against {Strategy}
-PlayIntent i want to play a {Rounds} round game against {Strategy}
 PlayIntent please start a {Rounds} round match against {Strategy}
 PlayIntent to initiate a {Rounds} round match against {Strategy}
 PlayIntent initiate a {Rounds} round match against {Strategy}

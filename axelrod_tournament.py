@@ -1,4 +1,4 @@
-from axelrod import Player, Actions, init_args, Game, DeterministicCache
+from axelrod import Player, Actions, Game, DeterministicCache
 from flask_ask import Ask, statement, question
 import axelrod.interaction_utils as iu
 from flask import Flask
@@ -44,7 +44,6 @@ class Alexa(Player):
         'manipulates_state': False
     }
 
-    @init_args
     def __init__(self, name='Alexa'):
         Player.__init__(self)
         self.name = name

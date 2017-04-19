@@ -12,6 +12,7 @@ adapative pavlov 2011
 appeaser
 arrogant qlearner
 average copier
+better and better
 backstabber
 bully
 calculator
@@ -55,7 +56,7 @@ go by majority 10
 go by majority 20
 go by majority 40
 go by majority 5
-phi
+$\phi$
 gradual
 gradual killer
 grofman
@@ -88,7 +89,7 @@ nydegger
 omega tft
 once bitten
 opposite grudger
-pi
+$\pi$
 predator
 prober
 prober 2
@@ -115,6 +116,7 @@ spiteful tit for tat
 stochastic cooperator
 stochastic wsls
 suspicious tit for tat
+tester
 thuemorse
 thuemorseinverse
 thumper
@@ -128,25 +130,35 @@ willing
 win-shift lose-stay
 win-stay lose-shift
 worse and worse
+worse and worse 2
+worse and worse 3
 zd-extort-2
 zd-extort-2 v2
 zd-extort-4
 zd-gtft-2
 zd-gen-2
 zd-set-2
-e
+$e$
 meta hunter
+meta hunter aggressive
 meta majority
-meta minority
-meta winner
 meta majority memory one
-meta winner memory one
 meta majority finite memory
-meta winner finite memory
 meta majority long memory
-meta winner long memory
+meta minority
 meta mixer
+meta winner
+meta winner deterministic
 meta winner ensemble
+meta winner memory one
+meta winner finite memory
+meta winner long memory
+meta winner stochastic
+mwe deterministic
+mwe finite memory
+mwe long memory
+mwe memory one
+mwe stochastic
 ]
 
 LIST_OF_CHOICES = [

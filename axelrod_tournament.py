@@ -16,8 +16,8 @@ def update_history(player, move):
     """
     Updates histories and cooperation / defections counts following play.
     """
-    # Update histories
-    player.history.append(move)
+    player.history.append(move) # Update histories
+
     # Update player counts of cooperation and defection
     if move == C:
         player.cooperations += 1
@@ -131,303 +131,329 @@ class Match(object):
 
 def which_strategy(opp):
     if opp == "adaptive":
-        strategy = "Adaptive"
+        subject = "Adaptive"
     elif opp == "adaptive tit for tat":
-        strategy = "Adaptive Tit For Tat"
+        subject = "Adaptive Tit For Tat"
     elif opp == "aggravater":
-        strategy = "Aggravater"
+        subject = "Aggravater"
     elif opp == "allcoralld":
-        strategy = "ALLCorALLD"
+        subject = "ALLCorALLD"
     elif opp == "alternator":
-        strategy = "Alternator"
+        subject = "Alternator"
     elif opp == "alternator hunter":
-        strategy = "Alternator Hunter"
+        subject = "Alternator Hunter"
     elif opp == "anticycler":
-        strategy = "AntiCycler"
+        subject = "AntiCycler"
     elif opp == "anti tit for tat":
-        strategy = "Anti Tit For Tat"
+        subject = "Anti Tit For Tat"
     elif opp == "adapative pavlov 2006":
-        strategy = "Adapative Pavlov 2006"
+        subject = "Adapative Pavlov 2006"
     elif opp == "adapative pavlov 2011":
-        strategy = "Adapative Pavlov 2011"
+        subject = "Adapative Pavlov 2011"
     elif opp == "appeaser":
-        strategy = "Appeaser"
+        subject = "Appeaser"
     elif opp == "arrogant qlearner":
-        strategy = "Arrogant QLearner"
+        subject = "Arrogant QLearner"
     elif opp == "average copier":
-        strategy = "Average Copier"
+        subject = "Average Copier"
+    elif opp == "better and better":
+        subject = "Better and Better"
     elif opp == "backstabber":
-        strategy = "BackStabber"
+        subject = "BackStabber"
     elif opp == "bully":
-        strategy = "Bully"
+        subject = "Bully"
     elif opp == "calculator":
-        strategy = "Calculator"
+        subject = "Calculator"
     elif opp == "cautious qlearner":
-        strategy = "Cautious QLearner"
+        subject = "Cautious QLearner"
     elif opp == "champion":
-        strategy = "Champion"
+        subject = "Champion"
     elif opp == "contrite tit for tat":
-        strategy = "Contrite Tit For Tat"
+        subject = "Contrite Tit For Tat"
     elif opp == "cooperator":
-        strategy = "Cooperator"
+        subject = "Cooperator"
     elif opp == "cooperator hunter":
-        strategy = "Cooperator Hunter"
+        subject = "Cooperator Hunter"
     elif opp == "cycle hunter":
-        strategy = "Cycle Hunter"
+        subject = "Cycle Hunter"
     elif opp == "cycler cccccd":
-        strategy = "Cycler CCCCCD"
+        subject = "Cycler CCCCCD"
     elif opp == "cycler cccd":
-        strategy = "Cycler CCCD"
+        subject = "Cycler CCCD"
     elif opp == "cycler ccd":
-        strategy = "Cycler CCD"
+        subject = "Cycler CCD"
     elif opp == "cycler dc":
-        strategy = "Cycler DC"
+        subject = "Cycler DC"
     elif opp == "cycler ddc":
-        strategy = "Cycler DDC"
+        subject = "Cycler DDC"
     elif opp == "cycler cccdcd":
-        strategy = "Cycler CCCDCD"
+        subject = "Cycler CCCDCD"
     elif opp == "davis":
-        strategy = "Davis"
+        subject = "Davis"
     elif opp == "defector":
-        strategy = "Defector"
+        subject = "Defector"
     elif opp == "defector hunter":
-        strategy = "Defector Hunter"
+        subject = "Defector Hunter"
     elif opp == "desperate":
-        strategy = "Desperate"
+        subject = "Desperate"
     elif opp == "doublecrosser":
-        strategy = "DoubleCrosser"
+        subject = "DoubleCrosser"
     elif opp == "doubler":
-        strategy = "Doubler"
+        subject = "Doubler"
     elif opp == "easygo":
-        strategy = "EasyGo"
+        subject = "EasyGo"
     elif opp == "eatherley":
-        strategy = "Eatherley"
+        subject = "Eatherley"
     elif opp == "eventual cycle hunter":
-        strategy = "Eventual Cycle Hunter"
+        subject = "Eventual Cycle Hunter"
     elif opp == "evolvedann":
-        strategy = "EvolvedANN"
+        subject = "EvolvedANN"
     elif opp == "evolvedlookerup":
-        strategy = "EvolvedLookerUp"
+        subject = "EvolvedLookerUp"
     elif opp == "feld":
-        strategy = "Feld"
+        subject = "Feld"
     elif opp == "firm but fair":
-        strategy = "Firm But Fair"
+        subject = "Firm But Fair"
     elif opp == "fool me forever":
-        strategy = "Fool Me Forever"
+        subject = "Fool Me Forever"
     elif opp == "fool me once":
-        strategy = "Fool Me Once"
+        subject = "Fool Me Once"
     elif opp == "forgetful fool me once":
-        strategy = "Forgetful Fool Me Once"
+        subject = "Forgetful Fool Me Once"
     elif opp == "forgetful grudger":
-        strategy = "Forgetful Grudger"
+        subject = "Forgetful Grudger"
     elif opp == "forgiver":
-        strategy = "Forgiver"
+        subject = "Forgiver"
     elif opp == "forgiving tit for tat":
-        strategy = "Forgiving Tit For Tat"
+        subject = "Forgiving Tit For Tat"
     elif opp == "fortress3":
-        strategy = "Fortress3"
+        subject = "Fortress3"
     elif opp == "fortress4":
-        strategy = "Fortress4"
+        subject = "Fortress4"
     elif opp == "pso gambler":
-        strategy = "PSO Gambler"
+        subject = "PSO Gambler"
     elif opp == "gtft":
-        strategy = "GTFT"
+        subject = "GTFT"
     elif opp == "go by marjority":
-        strategy = "Go By Marjority"
+        subject = "Go By Marjority"
     elif opp == "go by majority 10":
-        strategy = "Go By Majority 10"
+        subject = "Go By Majority 10"
     elif opp == "go by majority 20":
-        strategy = "Go By Majority 20"
+        subject = "Go By Majority 20"
     elif opp == "go by majority 40":
-        strategy = "Go By Majority 40"
+        subject = "Go By Majority 40"
     elif opp == "go by majority 5":
-        strategy = "Go By Majority 5"
+        subject = "Go By Majority 5"
     elif opp == "phi":
-        strategy = "$\phi$"
+        subject = "$\phi$"
     elif opp == "gradual":
-        strategy = "Gradual"
+        subject = "Gradual"
     elif opp == "gradual killer":
-        strategy = "Gradual Killer"
+        subject = "Gradual Killer"
     elif opp == "grofman":
-        strategy = "Grofman"
+        subject = "Grofman"
     elif opp == "grudger":
-        strategy = "Grudger"
+        subject = "Grudger"
     elif opp == "grudgeralternator":
-        strategy = "GrudgerAlternator"
+        subject = "GrudgerAlternator"
     elif opp == "grumpy":
-        strategy = "Grumpy"
+        subject = "Grumpy"
     elif opp == "handshake":
-        strategy = "Handshake"
+        subject = "Handshake"
     elif opp == "hard go by majority":
-        strategy = "Hard Go By Majority"
+        subject = "Hard Go By Majority"
     elif opp == "hard go by majority 10":
-        strategy = "Hard Go By Majority 10"
+        subject = "Hard Go By Majority 10"
     elif opp == "hard go by majority 20":
-        strategy = "Hard Go By Majority 20"
+        subject = "Hard Go By Majority 20"
     elif opp == "hard go by majority 40":
-        strategy = "Hard Go By Majority 40"
+        subject = "Hard Go By Majority 40"
     elif opp == "hard go by majority 5":
-        strategy = "Hard Go By Majority 5"
+        subject = "Hard Go By Majority 5"
     elif opp == "hard prober":
-        strategy = "Hard Prober"
+        subject = "Hard Prober"
     elif opp == "hard tit for 2 tats":
-        strategy = "Hard Tit For 2 Tats"
+        subject = "Hard Tit For 2 Tats"
     elif opp == "hard tit for tat":
-        strategy = "Hard Tit For Tat"
+        subject = "Hard Tit For Tat"
     elif opp == "hesitant qlearner":
-        strategy = "Hesitant QLearner"
+        subject = "Hesitant QLearner"
     elif opp == "hopeless":
-        strategy = "Hopeless"
+        subject = "Hopeless"
     elif opp == "inverse":
-        strategy = "Inverse"
+        subject = "Inverse"
     elif opp == "inverse punisher":
-        strategy = "Inverse Punisher"
+        subject = "Inverse Punisher"
     elif opp == "joss":
-        strategy = "Joss"
+        subject = "Joss"
     elif opp == "knowledgeable worse and worse":
-        strategy = "Knowledgeable Worse and Worse"
+        subject = "Knowledgeable Worse and Worse"
     elif opp == "limited retaliate":
-        strategy = "Limited Retaliate"
+        subject = "Limited Retaliate"
     elif opp == "limited retaliate 2":
-        strategy = "Limited Retaliate 2"
+        subject = "Limited Retaliate 2"
     elif opp == "limited retaliate 3":
-        strategy = "Limited Retaliate 3"
+        subject = "Limited Retaliate 3"
     elif opp == "math constant hunter":
-        strategy = "Math Constant Hunter"
+        subject = "Math Constant Hunter"
     elif opp == "naive prober":
-        strategy = "Naive Prober"
+        subject = "Naive Prober"
     elif opp == "negation":
-        strategy = "Negation"
+        subject = "Negation"
     elif opp == "nice average copier":
-        strategy = "Nice Average Copier"
+        subject = "Nice Average Copier"
     elif opp == "nydegger":
-        strategy = "Nydegger"
+        subject = "Nydegger"
     elif opp == "omega tft":
-        strategy = "Omega TFT"
+        subject = "Omega TFT"
     elif opp == "once bitten":
-        strategy = "Once Bitten"
+        subject = "Once Bitten"
     elif opp == "opposite grudger":
-        strategy = "Opposite Grudger"
+        subject = "Opposite Grudger"
     elif opp == "pi":
-        strategy = "$\pi$"
+        subject = "$\pi$"
     elif opp == "predator":
-        strategy = "Predator"
+        subject = "Predator"
     elif opp == "prober":
-        strategy = "Prober"
+        subject = "Prober"
     elif opp == "prober 2":
-        strategy = "Prober 2"
+        subject = "Prober 2"
     elif opp == "prober 3":
-        strategy = "Prober 3"
+        subject = "Prober 3"
     elif opp == "prober 4":
-        strategy = "Prober 4"
+        subject = "Prober 4"
     elif opp == "punisher":
-        strategy = "Punisher"
+        subject = "Punisher"
     elif opp == "raider":
-        strategy = "Raider"
+        subject = "Raider"
     elif opp == "random":
-        strategy = "Random"
+        subject = "Random"
     elif opp == "random hunter":
-        strategy = "Random Hunter"
+        subject = "Random Hunter"
     elif opp == "remorseful prober":
-        strategy = "Remorseful Prober"
+        subject = "Remorseful Prober"
     elif opp == "retaliate":
-        strategy = "Retaliate"
+        subject = "Retaliate"
     elif opp == "retaliate 2":
-        strategy = "Retaliate 2"
+        subject = "Retaliate 2"
     elif opp == "retaliate 3":
-        strategy = "Retaliate 3"
+        subject = "Retaliate 3"
     elif opp == "ripoff":
-        strategy = "Ripoff"
+        subject = "Ripoff"
     elif opp == "risky qlearner":
-        strategy = "Risky QLearner"
+        subject = "Risky QLearner"
     elif opp == "shubik":
-        strategy = "Shubik"
+        subject = "Shubik"
     elif opp == "slow tit for two tats":
-        strategy = "Slow Tit For Two Tats"
+        subject = "Slow Tit For Two Tats"
     elif opp == "sneaky tit for tat":
-        strategy = "Sneaky Tit For Tat"
+        subject = "Sneaky Tit For Tat"
     elif opp == "soft grudger":
-        strategy = "Soft Grudger"
+        subject = "Soft Grudger"
     elif opp == "soft joss":
-        strategy = "Soft Joss"
+        subject = "Soft Joss"
     elif opp == "solutionb1":
-        strategy = "SolutionB1"
+        subject = "SolutionB1"
     elif opp == "solutionb5":
-        strategy = "SolutionB5"
+        subject = "SolutionB5"
     elif opp == "spiteful tit for tat":
-        strategy = "Spiteful Tit For Tat"
+        subject = "Spiteful Tit For Tat"
     elif opp == "stochastic cooperator":
-        strategy = "Stochastic Cooperator"
+        subject = "Stochastic Cooperator"
     elif opp == "stochastic wsls":
-        strategy = "Stochastic WSLS"
+        subject = "Stochastic WSLS"
     elif opp == "suspicious tit for tat":
-        strategy = "Suspicious Tit For Tat"
+        subject = "Suspicious Tit For Tat"
+    elif opp == "tester":
+        subject = "Tester"
     elif opp == "thuemorse":
-        strategy = "ThueMorse"
+        subject = "ThueMorse"
     elif opp == "thuemorseinverse":
-        strategy = "ThueMorseInverse"
+        subject = "ThueMorseInverse"
     elif opp == "thumper":
-        strategy = "Thumper"
+        subject = "Thumper"
     elif opp == "tit for tat":
-        strategy = "Tit For Tat"
+        subject = "Tit For Tat"
     elif opp == "tit for 2 tats":
-        strategy = "Tit For 2 Tats"
+        subject = "Tit For 2 Tats"
     elif opp == "tricky cooperator":
-        strategy = "Tricky Cooperator"
+        subject = "Tricky Cooperator"
     elif opp == "tricky defector":
-        strategy = "Tricky Defector"
+        subject = "Tricky Defector"
     elif opp == "tullock":
-        strategy = "Tullock"
+        subject = "Tullock"
     elif opp == "two tits for tat":
-        strategy = "Two Tits For Tat"
+        subject = "Two Tits For Tat"
     elif opp == "willing":
-        strategy = "Willing"
+        subject = "Willing"
     elif opp == "win-shift lose-stay":
-        strategy = "Win-Shift Lose-Stay"
+        subject = "Win-Shift Lose-Stay"
     elif opp == "win-stay lose-shift":
-        strategy = "Win-Stay Lose-Shift"
+        subject = "Win-Stay Lose-Shift"
     elif opp == "worse and worse":
-        strategy = "Worse and Worse"
+        subject = "Worse and Worse"
+    elif opp == "worse and worse 2":
+        subject = "Worse and Worse 2"
+    elif opp == "worse and worse 3":
+        subject = "Worse and Worse 3"
     elif opp == "zd-extort-2":
-        strategy = "ZD-Extort-2"
+        subject = "ZD-Extort-2"
     elif opp == "zd-extort-2 v2":
-        strategy = "ZD-Extort-2 v2"
+        subject = "ZD-Extort-2 v2"
     elif opp == "zd-extort-4":
-        strategy = "ZD-Extort-4"
+        subject = "ZD-Extort-4"
     elif opp == "zd-gtft-2":
-        strategy = "ZD-GTFT-2"
+        subject = "ZD-GTFT-2"
     elif opp == "zd-gen-2":
-        strategy = "ZD-GEN-2"
+        subject = "ZD-GEN-2"
     elif opp == "zd-set-2":
-        strategy = "ZD-SET-2"
+        subject = "ZD-SET-2"
     elif opp == "e":
-        strategy = "$e$"
+        subject = "$e$"
     elif opp == "meta hunter":
-        strategy = "Meta Hunter"
+        subject = "Meta Hunter"
+    elif opp == "meta hunter aggressive":
+        subject = "Meta Hunter Aggressive"
     elif opp == "meta majority":
-        strategy = "Meta Majority"
-    elif opp == "meta minority":
-        strategy = "Meta Minority"
-    elif opp == "meta winner":
-        strategy = "Meta Winner"
+        subject = "Meta Majority"
     elif opp == "meta majority memory one":
-        strategy = "Meta Majority Memory One"
-    elif opp == "meta winner memory one":
-        strategy = "Meta Winner Memory One"
+        subject = "Meta Majority Memory One"
     elif opp == "meta majority finite memory":
-        strategy = "Meta Majority Finite Memory"
-    elif opp == "meta winner finite memory":
-        strategy = "Meta Winner Finite Memory"
+        subject = "Meta Majority Finite Memory"
     elif opp == "meta majority long memory":
-        strategy = "Meta Majority Long Memory"
-    elif opp == "meta winner long memory":
-        strategy = "Meta Winner Long Memory"
+        subject = "Meta Majority Long Memory"
+    elif opp == "meta minority":
+        subject = "Meta Minority"
     elif opp == "meta mixer":
-        strategy = "Meta Mixer"
+        subject = "Meta Mixer"
+    elif opp == "meta winner":
+        subject = "Meta Winner"
+    elif opp == "meta winner deterministic":
+        subject = "Meta Winner Deterministic"
     elif opp == "meta winner ensemble":
-        strategy = "Meta Winner Ensemble"
+        subject = "Meta Winner Ensemble"
+    elif opp == "meta winner memory one":
+        subject = "Meta Winner Memory One"
+    elif opp == "meta winner finite memory":
+        subject = "Meta Winner Finite Memory"
+    elif opp == "meta winner long memory":
+        subject = "Meta Winner Long Memory"
+    elif opp == "meta winner stochastic":
+        subject = "Meta Winner Stochastic"
+    elif opp == "mwe deterministic":
+        subject = "MWE Deterministic"
+    elif opp == "mwe finite memory":
+        subject = "MWE Finite Memory"
+    elif opp == "mwe long memory":
+        subject = "MWE Long Memory"
+    elif opp == "mwe memory one":
+        subject = "MWE Memory One"
+    elif opp == "mwe stochastic":
+        subject = "MWE Stochastic"
+    else:
+        subject = "ERROR"
 
-    return strategy
+    return subject
 
 @ask.launch
 def welcome():
@@ -438,20 +464,29 @@ def welcome():
 def play_intent(Rounds, Strategy):
     you = Alexa(name='you')
     strategy = which_strategy(Strategy)
-    opp = axl.strategies[[s.name for s in axl.strategies].index(strategy)]()
 
-    global PLAYERS
-    PLAYERS = []
-    PLAYERS.append(opp)
-    PLAYERS.append(you)
+    if strategy != "ERROR":
+        opp = axl.strategies[[s.name for s in axl.strategies].index(strategy)]()
 
-    global ROUNDS
-    ROUNDS += int(Rounds)
+        global PLAYERS
+        PLAYERS = []
+        PLAYERS.append(opp)
+        PLAYERS.append(you)
 
-    for player in PLAYERS:
-        player.set_match_attributes(length=ROUNDS, game=Game(), noise=0)
+        for p in PLAYERS:
+            p.reset()
 
-    return Match().talk()
+        global ROUNDS
+        ROUNDS += int(Rounds)
+
+        for player in PLAYERS:
+            player.set_match_attributes(length=ROUNDS, game=Game(), noise=0)
+
+        action = Match().talk()
+    elif strategy == "ERROR":
+        action = err('play')
+
+    return action
 
 @ask.intent("ChoiceIntent")
 def choice_intent(self, Choice):
@@ -459,36 +494,52 @@ def choice_intent(self, Choice):
         choice = D
     elif Choice == 'cooperate':
         choice = C
+    else:
+        choice = "ERROR"
 
-    global PLAYERS
-    global ROUNDS
-    if len(PLAYERS[0].history) == 0 or len(PLAYERS[0].history) > ROUNDS:
-        for p in PLAYERS:
-            p.reset()
+    if choice != "ERROR":
+        global PLAYERS
+        s1, s2 = PLAYERS[0].strategy(PLAYERS[1]), PLAYERS[1].strategy(PLAYERS[0], choice)
 
-    s1, s2 = PLAYERS[0].strategy(PLAYERS[1]), PLAYERS[1].strategy(PLAYERS[0], choice)
+        update_history(PLAYERS[0], s1)
+        update_history(PLAYERS[1], s2)
+        update_state_distribution(PLAYERS[0], s1, s2)
+        update_state_distribution(PLAYERS[1], s2, s1)
 
-    update_history(PLAYERS[0], s1)
-    update_history(PLAYERS[1], s2)
-    update_state_distribution(PLAYERS[0], s1, s2)
-    update_state_distribution(PLAYERS[1], s2, s1)
+        action = Match().talk()
+    elif choice == "ERROR":
+        action = err('choice')
 
-    return Match().talk()
+    return action
 
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
-    help_msg = "Using this skill you are able to start a 2 player match against one of 149 different strategies in the Axelrod library. You define how many rounds you want to go for, who you want to challenge, then tell me to cooperate or defect when it is your turn. Why not give a 3 round game against tit for tat a go, or if your feeling adventurous try a 23 round game against EvolvedANN."
-    return statement(help_msg)
+    help_msg = """Using this skill you are able to start a 2 player match against one of 149 different strategies in the Axelrod library.
+    You define how many rounds you want to go for, who you want to challenge, then tell me to cooperate or defect when it is your turn.
+    Why not give a 3 round game against tit for tat a go, or if your feeling adventurous try a 23 round game against EvolvedANN.
+    So ... what would you like to do?"""
+    return question(help_msg)
+
+def err(option):
+    if option == "choice":
+        err_msg = "Your response is invalid, I require you cooperate or defect. Which one will it be?"
+    elif option == 'play':
+        err_msg = """That stategy does not exist, you can use any strategy currently in the Axelrod Python library.
+        Take a look if you want I can wait..."""
+
+    return question(err_msg)
+
+def bye():
+    bye_msg = "This isn't the user we're looking for. You can go about your business. Move along... move along."
+    return statement(bye_msg)
 
 @ask.intent("AMAZON.StopIntent")
 def stop_intent():
-    stop_msg = "This is not the skill you are after... Carry on."
-    return statement(stop_msg)
+    return bye()
 
 @ask.intent("AMAZON.CancelIntent")
 def cancel_intent():
-    cancel_msg = "This is not the skill you are after... Carry on"
-    return statement(cancel_msg)
+    return bye()
 
 if __name__ == '__main__':
     app.run()

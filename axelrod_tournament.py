@@ -515,10 +515,10 @@ def choice_intent(self, Choice):
 
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
-    help_msg = """Using this skill you are able to start a 2 player match against one of 149 different strategies in the Axelrod library.
+    help_msg = """Using this skill you are able to start a 2 player match against one of 161 different strategies in the Axelrod library.
     You define how many rounds you want to go for, who you want to challenge, then tell me to cooperate or defect when it is your turn.
-    Why not give a 3 round game against tit for tat a go, or if your feeling adventurous try a 23 round game against EvolvedANN.
-    So ... what would you like to do?"""
+    Why not give a 3 round game against tit for tat a go, or, if your feeling adventurous, try a 23 round game against EvolvedANN.
+    So... what would you like to do?"""
     return question(help_msg)
 
 def err(option):

@@ -118,17 +118,17 @@ class Match(object):
             winner = self.winner()
 
             if winner == False:
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning the match is a draw.".format(score[1], opp, score[0]))
+                msg = statement("End of the match, you scored {}, and {} scored {}, meaning the match is a draw.".format(score[1], opp, score[0]))
             elif str(winner) == '$\phi$':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning phi is the winner. Better luck next time.".format(score[1], opp, score[0]))
+                msg = statement("End of the match, you scored {}, and {} scored {}, meaning phi is the winner. Better luck next time.".format(score[1], opp, score[0]))
             elif str(winner) == '$\pi$':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning pi is the winner. Better luck next time.".format(score[1], opp, score[0]))
+                msg = statement("End of the match, you scored {}, and {} scored {}, meaning pi is the winner. Better luck next time.".format(score[1], opp, score[0]))
             elif str(winner) == '$e$':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning e is the winner. Better luck next time.".format(score[1], opp, score[0]))
-            elif winner == 'you: you':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning you are the winner.".format(score[1], opp, score[0]))
+                msg = statement("End of the match, you scored {}, and {} scored {}, meaning e is the winner. Better luck next time.".format(score[1], opp, score[0]))
+            elif str(winner) == 'you: you':
+                msg = statement("End of the match, you scored {}, and {} scored {}, meaning you are the winner.".format(score[1], opp, score[0]))
             else:
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning {} is the winner. Better luck next time.".format(score[1], opp, score[0], winner))
+                msg = statement("End of the match, you scored {}, and {} scored {}, meaning {} is the winner. Better luck next time.".format(score[1], opp, score[0], winner))
 
         return msg
 
@@ -480,16 +480,17 @@ def play_intent(Rounds, Strategy):
             p.reset()
 
         global ROUNDS
-        ROUNDS = int(Rounds)
+        try:
+            ROUNDS = int(Rounds)
+        except ValueError or TypeError:
+            return err('round')
 
         for player in PLAYERS:
             player.set_match_attributes(length=ROUNDS, game=Game(), noise=0)
 
-        action = Match().talk()
+        return Match().talk()
     elif strategy == "ERROR":
-        action = err('play')
-
-    return action
+        return err('play')
 
 @ask.intent("ChoiceIntent")
 def choice_intent(self, Choice):
@@ -509,11 +510,9 @@ def choice_intent(self, Choice):
         update_state_distribution(PLAYERS[0], s1, s2)
         update_state_distribution(PLAYERS[1], s2, s1)
 
-        action = Match().talk()
+        return Match().talk()
     elif choice == "ERROR":
-        action = err('choice')
-
-    return action
+        return err('choice')
 
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
@@ -524,16 +523,18 @@ def help_intent():
     return question(help_msg)
 
 def err(option):
-    if option == "choice":
+    if option == 'choice':
         err_msg = "Your response is invalid, I require you cooperate or defect. Which one will it be?"
     elif option == 'play':
         err_msg = """That stategy does not exist, you can use any strategy currently in the Axelrod Python library.
         Take a look if you want I can wait..."""
+    elif option == 'round':
+        err_msg = "You haven`t given me the number of rounds that you want to play. Canceling match. What would you like to do?"
 
     return question(err_msg)
 
 def bye():
-    bye_msg = "This isn't the user we're looking for. You can go about your business. Move along... move along."
+    bye_msg = "Guys, this isn't the user we're looking for. You can go about your business. Move along... come on, move along."
     return statement(bye_msg)
 
 @ask.intent("AMAZON.StopIntent")

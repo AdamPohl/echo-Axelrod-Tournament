@@ -3,10 +3,12 @@ from flask_ask import Ask, statement, question
 import axelrod.interaction_utils as iu
 from flask import Flask
 import axelrod as axl
+import logging
 
 app = Flask(__name__)
 ask = Ask(app, '/')
 
+logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 C, D = Actions.C, Actions.D
 PLAYERS = []
 ROUNDS = 0
@@ -126,7 +128,7 @@ class Match(object):
             elif winner == 'you: you':
                 msg = statement("End of match, you scored {}, and {} scored {}, meaning you are the winner.".format(score[1], opp, score[0]))
             else:
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning {} is the winner" Better luck next time..format(score[1], opp, score[0], winner))
+                msg = statement("End of match, you scored {}, and {} scored {}, meaning {} is the winner. Better luck next time.".format(score[1], opp, score[0], winner))
 
         return msg
 
@@ -478,7 +480,7 @@ def play_intent(Rounds, Strategy):
             p.reset()
 
         global ROUNDS
-        ROUNDS += int(Rounds)
+        ROUNDS = int(Rounds)
 
         for player in PLAYERS:
             player.set_match_attributes(length=ROUNDS, game=Game(), noise=0)
@@ -543,4 +545,4 @@ def cancel_intent():
     return bye()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

@@ -118,13 +118,15 @@ class Match(object):
             if winner == False:
                 msg = statement("End of match, you scored {}, and {} scored {}, meaning the match is a draw.".format(score[1], opp, score[0]))
             elif str(winner) == '$\phi$':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning phi is the winner.".format(score[1], opp, score[0]))
+                msg = statement("End of match, you scored {}, and {} scored {}, meaning phi is the winner. Better luck next time.".format(score[1], opp, score[0]))
             elif str(winner) == '$\pi$':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning pi is the winner.".format(score[1], opp, score[0]))
+                msg = statement("End of match, you scored {}, and {} scored {}, meaning pi is the winner. Better luck next time.".format(score[1], opp, score[0]))
             elif str(winner) == '$e$':
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning e is the winner.".format(score[1], opp, score[0]))
+                msg = statement("End of match, you scored {}, and {} scored {}, meaning e is the winner. Better luck next time.".format(score[1], opp, score[0]))
+            elif winner == 'you: you':
+                msg = statement("End of match, you scored {}, and {} scored {}, meaning you are the winner.".format(score[1], opp, score[0]))
             else:
-                msg = statement("End of match, you scored {}, and {} scored {}, meaning {} is the winner.".format(score[1], opp, score[0], winner))
+                msg = statement("End of match, you scored {}, and {} scored {}, meaning {} is the winner" Better luck next time..format(score[1], opp, score[0], winner))
 
         return msg
 

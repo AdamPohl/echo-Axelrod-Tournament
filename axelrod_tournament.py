@@ -476,7 +476,10 @@ def play_intent(Rounds, Strategy):
     global ROUNDS
     try:
         ROUNDS = int(Rounds)
-    except ValueError or TypeError or ROUNDS == 0:
+    except ValueError or TypeError:
+        return err('round')
+
+    if ROUNDS == 0:
         return err('round')
 
     global PLAYERS

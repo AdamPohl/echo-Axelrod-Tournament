@@ -468,29 +468,29 @@ def play_intent(Rounds, Strategy):
     you = Alexa(name='you')
     strategy = which_strategy(Strategy)
 
-    if strategy != "ERROR":
-        opp = axl.strategies[[s.name for s in axl.strategies].index(strategy)]()
-
-        global PLAYERS
-        PLAYERS = []
-        PLAYERS.append(opp)
-        PLAYERS.append(you)
-
-        for p in PLAYERS:
-            p.reset()
-
-        global ROUNDS
-        try:
-            ROUNDS = int(Rounds)
-        except ValueError or TypeError:
-            return err('round')
-
-        for player in PLAYERS:
-            player.set_match_attributes(length=ROUNDS, game=Game(), noise=0)
-
-        return Match().talk()
-    elif strategy == "ERROR":
+    if strategy == "ERROR":
         return err('play')
+
+    opp = axl.strategies[[s.name for s in axl.strategies].index(strategy)]()
+
+    global ROUNDS
+    try:
+        ROUNDS = int(Rounds)
+    except ValueError or TypeError or ROUNDS == 0:
+        return err('round')
+
+    global PLAYERS
+    PLAYERS = []
+    PLAYERS.append(opp)
+    PLAYERS.append(you)
+
+    for p in PLAYERS:
+        p.reset()
+
+    for player in PLAYERS:
+        player.set_match_attributes(length=ROUNDS, game=Game(), noise=0)
+
+    return Match().talk()
 
 @ask.intent("ChoiceIntent")
 def choice_intent(self, Choice):
@@ -501,19 +501,19 @@ def choice_intent(self, Choice):
     else:
         choice = "ERROR"
 
-    if choice != "ERROR":
-        global PLAYERS
-        s1, s2 = PLAYERS[0].strategy(PLAYERS[1]), PLAYERS[1].strategy(PLAYERS[0], choice)
-
-        update_history(PLAYERS[0], s1)
-        update_history(PLAYERS[1], s2)
-        update_state_distribution(PLAYERS[0], s1, s2)
-        update_state_distribution(PLAYERS[1], s2, s1)
-
-        return Match().talk()
-    elif choice == "ERROR":
+    if choice == "ERROR":
         return err('choice')
 
+    global PLAYERS
+    s1, s2 = PLAYERS[0].strategy(PLAYERS[1]), PLAYERS[1].strategy(PLAYERS[0], choice)
+
+    update_history(PLAYERS[0], s1)
+    update_history(PLAYERS[1], s2)
+    update_state_distribution(PLAYERS[0], s1, s2)
+    update_state_distribution(PLAYERS[1], s2, s1)
+
+    return Match().talk()
+    
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
     help_msg = """Using this skill you are able to start a 2 player match against one of 161 different strategies in the Axelrod library.
@@ -534,7 +534,7 @@ def err(option):
     return question(err_msg)
 
 def bye():
-    bye_msg = "Guys, this isn't the user we're looking for. You can go about your business. Move along... come on, move along."
+    bye_msg = "Guys, this isn't the user we're looking for. You can go about your business. Move along... move along."
     return statement(bye_msg)
 
 @ask.intent("AMAZON.StopIntent")

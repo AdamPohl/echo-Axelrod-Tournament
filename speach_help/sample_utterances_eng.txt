@@ -1,6 +1,9 @@
-PlayIntent I want to play a {Rounds} round game against {Strategy}
-PlayIntent Lets play a {Rounds} round game against {Strategy}
+PlayIntent To please initiate a {Rounds} round match against {Strategy}
+PlayIntent To please start a {Rounds} round match against {Strategy}
+PlayIntent Please start a {Rounds} round match against {Strategy}
+PlayIntent To initiate a {Rounds} round match against {Strategy}
 PlayIntent Initiate a {Rounds} round match against {Strategy}
+PlayIntent To play a {Rounds} round game against {Strategy}
 PlayIntent Start a {Rounds} round match against {Strategy}
 PlayIntent Can I have a {Rounds} match against {Strategy}
 
@@ -18,6 +21,9 @@ ChoiceIntent I would like to {Choice}
 ChoiceIntent I am going to {Choice}
 ChoiceIntent I will {Choice}
 ChoiceIntent {Choice}
+
+AMAZON.HelpIntent What it can do
+AMAZON.HelpIntent What can you do
 
 AMAZON.HelpIntent what it can do
 AMAZON.HelpIntent what can you do

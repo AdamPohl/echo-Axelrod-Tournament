@@ -8,7 +8,6 @@ import logging
 app = Flask(__name__)
 ask = Ask(app, '/')
 
-logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 C, D = Actions.C, Actions.D
 PLAYERS = []
 ROUNDS = 0
@@ -26,12 +25,16 @@ def update_history(player, move):
     elif move == D:
         player.defections += 1
 
+    return "Player history updated"
+
 def update_state_distribution(player, action, reply):
     """
     Updates state_distribution following play.
     """
     last_turn = (action, reply)
     player.state_distribution[last_turn] += 1
+
+    return "Player state distrabution updated"
 
 class Alexa(Player):
     name = 'Alexa'
@@ -453,6 +456,22 @@ def which_strategy(opp):
         subject = "MWE Memory One"
     elif opp == "mwe stochastic":
         subject = "MWE Stochastic"
+    elif opp == "dbs":
+        subject = "DBS"
+    elif opp == "alexei":
+        subject = "Alexei"
+    elif opp == "steinandrapoport":
+        subject = "SteinAndRapoport"
+    elif opp == "dynamictwotitsfortat":
+        subject = "DynamicTwoTitsForTat"
+    elif opp == "euginenier":
+        subject = "EugineNier"
+    elif opp == "tf1":
+        subject = "TF1"
+    elif opp == "tf2":
+        subject = "TF2"
+    elif opp == "tf3":
+        subject = "TF3"
     else:
         subject = "ERROR"
 
@@ -516,7 +535,7 @@ def choice_intent(self, Choice):
     update_state_distribution(PLAYERS[1], s2, s1)
 
     return Match().talk()
-    
+
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
     help_msg = """Using this skill you are able to start a 2 player match against one of 161 different strategies in the Axelrod library.
@@ -549,4 +568,4 @@ def cancel_intent():
     return bye()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

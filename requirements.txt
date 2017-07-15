@@ -1,3 +1,4 @@
 awscli
 flask-ask
-axelrod
+axelrod==3.0.0
+zappa

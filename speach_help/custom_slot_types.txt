@@ -159,6 +159,14 @@ mwe finite memory
 mwe long memory
 mwe memory one
 mwe stochastic
+dbs
+alexei
+steinandrapoport
+dynamictwotitsfortat
+euginenier
+tf1
+tf2
+tf3
 ]
 
 LIST_OF_CHOICES = [

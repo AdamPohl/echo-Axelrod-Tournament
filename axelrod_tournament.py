@@ -96,6 +96,7 @@ class Match(object):
         return move, opp_move
 
     def talk(self):
+        quest = ", would you like to cooperate or defect?"
         round = len(self.players[0].history) + 1
         opp = self.players[0].name
         turns = self.turns
@@ -108,30 +109,37 @@ class Match(object):
             opp = 'e'
 
         if round == 1:
-            msg = question("Starting a {} round match between you and {}.  Round 1, would you like to cooperate or defect?".format(turns, opp))
+            msg = question("Starting a {} round match between you and {}.  Round 1, {}".format(turns, opp, quest))
         elif round > 1 and round < turns:
             move, opp_move = self._last_round_moves()
-            msg = question("In round {}, you played {}, {} played {}.  Round {}, would you like to cooperate or defect?".format(round - 1, move, opp, opp_move, round))
+            msg = question("In round {}, you played {}, {} played {}.  Round {}, {}".format(round - 1, move, opp, opp_move, round, quest))
         elif round == turns:
             move, opp_move = self._last_round_moves()
-            msg = question("In round {}, you played {}, {} played {}. Final round, would you like to cooperate or defect?".format(round - 1, move, opp, opp_move))
+            msg = question("In round {}, you played {}, {} played {}. Final round".format(round - 1, move, opp, opp_move, quest))
         elif round > turns:
             self.result = list(zip(self.players[0].history, self.players[1].history))
             score = self.final_score()
             winner = self.winner()
+            MSG = "End of the match, you scored {}, and {} scored {}, {}"
+            other = "meaning {} is the winner. Better luck next time."
+            phi = "meaning phi is the winner. Better luck next time."
+            pi = "meaning pi is the winner. Better luck next time."
+            e = "meaning e is the winner. Better luck next time."
+            draw = "meaning the match is a draw."
+            you = "meaning you are the winner."
 
             if winner == False:
-                msg = statement("End of the match, you scored {}, and {} scored {}, meaning the match is a draw.".format(score[1], opp, score[0]))
+                msg = statement(MSG.format(score[1], opp, score[0], draw))
             elif str(winner) == '$\phi$':
-                msg = statement("End of the match, you scored {}, and {} scored {}, meaning phi is the winner. Better luck next time.".format(score[1], opp, score[0]))
+                msg = statement(MSG.format(score[1], opp, score[0], phi))
             elif str(winner) == '$\pi$':
-                msg = statement("End of the match, you scored {}, and {} scored {}, meaning pi is the winner. Better luck next time.".format(score[1], opp, score[0]))
+                msg = statement(MSG.format(score[1], opp, score[0], pi))
             elif str(winner) == '$e$':
-                msg = statement("End of the match, you scored {}, and {} scored {}, meaning e is the winner. Better luck next time.".format(score[1], opp, score[0]))
+                msg = statement(MSG.format(score[1], opp, score[0], e))
             elif str(winner) == 'you: you':
-                msg = statement("End of the match, you scored {}, and {} scored {}, meaning you are the winner.".format(score[1], opp, score[0]))
+                msg = statement(MSG.format(score[1], opp, score[0], you))
             else:
-                msg = statement("End of the match, you scored {}, and {} scored {}, meaning {} is the winner. Better luck next time.".format(score[1], opp, score[0], winner))
+                msg = statement(MSG.format(score[1], opp, score[0], other, winner))
 
         return msg
 
